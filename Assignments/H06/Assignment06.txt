@@ -1,0 +1,76 @@
+A.
+
+  1.
+  Composition is when a class owns another class within its structure
+  Aggregation is when a class uses another class, but they exist independently
+  An example of composition could be a "Car" class owning an "Engine" class
+  An example of aggregation could be an "Employee" class within a "Business" class, where they may exist independently
+  Composition implies that the owned class is not independent of the parent class, thus a stronger relation
+
+  2.
+  Composition could be appropriate when giving attributes or abilities to a "Character" class in a videogame
+  Aggregation could be appropriate for putting "Books" into a "Library" class, as they could exist independently
+
+  3.
+  Composition has a "has-a" relationship implied, where a class is owned or within another class, and would not exist otherwise.
+  Composition could be favored where a class is needed to give attributes or items to another class that would not exist without the parent class.
+
+  4.  
+  A server is a good example of composition and aggregation, as a server requires hardware components such as a CPU and memory as an example of composition,
+  and aggregates clients that exist independently of the server itself.
+  The distinction between composition, aggregation, and inheritance is important to manage the relationship between classes, as some parts within a system may not need to exist outside another class
+
+B.
+
+#include <iostream>
+using namespace std;
+  class address{
+  private:
+    string street;
+    string city;
+    string state;  
+  public:
+  address(string street, string city, string state)
+  : street(street), city(city), state(state) {}
+
+  void printAddress() {
+      cout << street << ", " << city << ", " << state << endl;
+    }
+  };
+
+  class person{
+    private:
+      string name;
+      address addr;
+    public:
+      person(string name, address addr) 
+      : name(name), addr(addr) {}
+
+  void printPerson() {
+    cout << "Name: " << name << endl;
+    cout << "Address: ";
+    addr.printAddress();
+  }
+};
+
+  int main(){
+  address a1("123 Main St", "New York", "NY");
+  person p1("John", a1);
+  p1.printPerson(); 
+}
+
+Address is independent of the person class, but is aggregated within the person class and the printAddress() function is called within printPerson()
+
+C.
+
+  1.
+  If a parent class is destroyed in a composition relationship, the child objects will also be destroyed. The child class cannot exist independently.
+  In aggregation, the child class will continue to exist without the parent object, and may be associated with other parent objects.
+
+  2. 
+  Composition gives the advantage of easily destroying child objects along with parent classes if memory needs to be strictly managed.
+  One problem with using composition when looser coupling is required is the unintended destruction of the child class if it were to be assigned to multiple classes and one was destroyed.
+
+  3.
+  "has-a" relationships are when a class is owned or contained within another class, either independent or dependent, where "is-a" describes inherited methods and data from its parent class
+  Inheritance may be avoided if a loose independent relationship between classes needs to be retained, allowing flexibility between different classes
