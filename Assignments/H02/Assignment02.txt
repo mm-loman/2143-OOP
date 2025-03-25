@@ -1,0 +1,59 @@
+A. 
+ 1. Encapsulation in OOP is the bundling of data and methods within one unit, typically in order to control access and protect data from unwanted changes
+
+ 2. 
+  Public: Data can be accessed from anywhere. Allows for easy access but is more vulnerable to unwanted changes.
+  Private: Data can be accessed from within the class. Requires more methods to access, but is more secure from unwanted changes.
+  Protected: Data can be accessed from within the class and any subclass. Allows more flexibility to accessors but can cause unwanted changes due to complexity.
+
+  Using protected members would be beneficial if you create a subclass that uses and modifies members from the parent class but has its own unique members too.
+
+ 3. Encapsulation can reduce debugging complexity by restricting attributes as private or protected, which will keep them seperate and compartmentalized from other code.
+  Data within a bank account or online shopping platform could be accidentally changed by unrelated methods if data such as price or balances remain public within a class.
+
+  4. A real example of a system using a public interface and private implementation would be an ATM, where the card reader and menu are public and the amount of money withdrawn and charged are private.
+  If the private members were easily accessible, users could withdraw money from the ATM without being charged.
+
+B.
+  
+1.
+#include <iostream>
+using namespace std;
+int main(){
+
+  class bankAccount{
+  private:
+    int balance;
+    int accountNumber;
+  public:
+    bankAccount(int b, int a){
+      balance = b;
+      accountNumber = a;
+    }
+
+  void deposit(int d){
+    balance += d;
+  }
+
+  void withdraw(int w){
+    balance -= w;
+  }
+  };
+}
+
+2. The private member balance should be kept private as to not allow any unauthorized access changing the balance. Having public access could result in accidental changes or security breaches.
+  The private member accountNumber should be kept private to prevent unauthorized access and protect sensitive information. The accountNumber accidentally changing could result in other accounts improperly being changed.
+
+3. 
+  private:
+    int balance;    //private account balance. DO NOT DIRECTLY MODIFY
+    int accountNumber;  //private account number. DO NOT DIRECTLY MODIFY
+
+C.
+  1. Hiding private data behind methods adds another layer of security in order to ensure data is only modified intentionally. Data can also be kept private from viewing if there is sensitive information.
+  One limitation is the added complexity of the class or program, requiring more methods to be implemented and potentially more memory allocated.
+
+  2. Encapsulation protects the data being accessed and manipulated, rather than hiding the complexity of methods that are changing values. Encapsulation allows for limited access to only specific members.
+  Encapsulation may hide private data members being modified, while abstraction hides complex processes that are being used to modify data members.
+
+  3. Private data members can be tested using getter and setter functions, to make sure the processes within the methods function correctly within the class.
