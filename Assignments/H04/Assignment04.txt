@@ -1,0 +1,80 @@
+A.
+
+  1.
+  Polymorphism is the process of creating different functionalities for an object or method of the same interface.
+  Polymorphism allows a method to work with different data types or number of parameters, allowing subclasses to have their own specialized versions of functions.
+
+  2.
+  Compile time polymorphism (method overloading) is when the method is picked during compilation based on number or types of parameters.
+  Runtime polymorphism (method overriding) is when a subclass creates its own version of an inherited method, and the method is picked during runtime based on the object type.
+  Runtime polymorphism requires an inheritance relationship as it relies on the method in the subclass to override the base class method.
+
+  3.
+  A class might have methods with different parameter lists to allow additional data to be incorporated in a process.
+
+  int sum(int a, int b){
+  return a+b;
+  }
+
+  int sum(int a, int b, int c){
+  return a+b+c;
+  }
+
+  4.
+  A derived class overrides a base class method by making its own definition with modified data/processes/
+  The virtual keyword is needed to call the right method based on its object type rather than the pointer to the base class method.
+
+B.
+#include <iostream>
+using namespace std;
+int main(){
+ class shape{
+   public:
+    virtual void draw(){
+      cout << "drawing." << endl;
+    }
+   };
+   
+  class circle : public shape{
+    void draw() override{
+      cout << "drawing circle." << endl;
+    }
+  };
+
+  class rectangle : public shape{
+    void draw() override{
+      cout << "drawing rectangle." << endl;
+    }
+  };
+
+  shape* shapes[2];
+  shapes[0] = new circle;
+  shapes[1] = new rectangle;
+
+  for(int i = 0; i < 2; i++){
+    shapes[i]->draw();
+  }
+}
+  output: drawing circle.
+          drawing rectangle.
+
+C.
+
+  1. 
+  Compile time resolution is used in a calculate() function based on the parameters passed to the function: calculate(int, int) calculate (double, double)
+
+  2.
+  The draw() method is picked in runtime by selecting the definition based on the object. This is important to allow the program to be more flexible with methods using different data/processes.
+
+D.
+
+  1.
+  Polymorphism can be used in a game where characters have different implementations of the same action such as attack() using different weapons.
+  This makes it easier to make the attack() function use each respective weapon for a class, rather than making an attack function for each class.
+
+  2.
+  One pitfall in method overloading is ambiguity in parameter types, such as number values that the compiler cannot clearly differentiate between.
+  A pitfall in runtime polymorphism could be trying to debug a problem with an overridden method, which would be hard to differentiate between inherited methods.
+
+  3.
+  A new triangle class could be added without modifying the other subclasses of shape, as they reference the original shape class independently.
