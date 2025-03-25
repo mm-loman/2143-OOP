@@ -1,0 +1,89 @@
+A.
+
+  1.
+  DRY (Don't Repeat Yourself) is a principle to reduce excess code by minimizing repeat processes into one reusable location
+  Rather than repeating several lines of code for multiple processes like mathematics, creating a function would be more efficient
+
+  2.
+  KISS (Keep It Simple, Stupid) is a principle to avoid uneccesarry overengineered or complicated code for readability and ease of access
+  Too little complexity can be a problem when efficiency and readability could be increased by a more complex implementation of a process, such as a function
+
+  3. 
+  Single Responsibility Principle (SRP) states that a class or module should serve only one intended purpose, rather than bundling multiple processes into one function
+  Open-Closed Principle (OCP) states that classes and modules should be open for extension but closed for modification, meaning using inheritance to expand a class is better than modifying the original
+  SOLID principles are crucial to maintain accessibility and readability of a codebase and to prevent problems that could arise from changes. 
+
+B.
+
+1.
+  ------------------------------------------------------
+  void printAnimal(){
+    cout << animal << endl;
+  void printAnimalStats(){
+    cout << animal << name << weight << height << endl; 
+  ------------------------\/----------------------------
+  void printAnimalStats(bool stats = false){
+    cout << animal;
+   if (stats = true){
+    cout << name << weight << height << endl;}
+   }
+ -------------------------------------------------------
+
+2.
+ -------------------------------------------------------
+  if(price >= 10){
+   discount = .1
+  }
+  if (price >= 20){
+   discount = .2
+  }
+ ------------------------\/----------------------------
+discount = (price / 10) * .1
+-------------------------------------------------------
+
+3.
+-------------------------------------------------------
+Shape
+  draw()
+  calculateArea()
+
+Circle : Shape
+  draw(){
+    drawCircle
+   }
+  calculateArea()
+
+Rectangle : Shape
+  draw(){
+    drawRectangle
+   }
+  calculateArea()
+
+  Open-Closed Principle (OCP) shows how the draw function is overrided for each new class, rather than modifying the original Shape class to draw() different shapes.
+
+C.
+
+  1.
+  Combining parameters into one function may look like it removes repeated code, but can add unnecessary complexity
+
+  login_admin(user){
+    if (password = correct)
+      login
+  login_guest(user)
+    login
+
+  login_user(user,UserType, password)
+    if (userType == admin)
+      if (password = correct){
+          login
+         }
+    else{
+      login
+      }
+
+  2.
+  Using DRY and KISS will make code simultaneously reusable and easy to read/simplistic in order to make it more accessible to changes, like simple functions with only one clear purpose
+
+  3. 
+  It is not always necessary to follow all SOLID prinicples in a small project, as some implementation may be more complicated following SOLID
+  A small project may not require any modifications or future-proofing, thus making the time spent on optimizing all code relationships uneccessary
