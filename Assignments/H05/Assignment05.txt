@@ -1,0 +1,59 @@
+A.
+
+  1.
+  Abstraction is the process of hiding complex details and methods of an object and only showing functional features.
+  Driving a car or playing a videogame are both examples of abstraction, and a functional interface is used while the actual processes of the machine are hidden or unknown.
+
+  2.
+  Abstraction hides complex processes and functions within a structure, while encapsulation hides private data values from being accessed.
+  These can be confused as they are both hiding certain data within a class, but abstraction is hiding unnecessary subprocesses and encapsulation is hiding sensitive data.
+
+  3.
+ Attributes:
+  Temperature
+  SetTemperature
+  Mode
+ Methods:
+  setTemp()
+  changeMode()
+
+  Details like the circuit design and firmware are irrelevant for the user functionality of the thermostat, therefore there is no reason to show them to the user.
+
+  4.
+  User navigation. This allows anyone looking at the functions within a project to easily figure out what something does without knowing the processes
+  Flexibility. This allows many processes to easily be reused for expanding upon the project.
+  Abstraction can reduce complexity by simply showing functionality rather than unnecessary details in a process.
+
+B.
+
+  int main(){
+  class bankAccount{
+  protected:
+    int balance;
+  public:
+    virtual void withdraw(int a){};
+    virtual void deposit(int a){};
+  };
+
+  class savingsAccount : public bankAccount{
+  public:
+    void deposit(int a){
+    balance += a;
+    }
+
+    void withdraw(int a){
+    balance -= a;
+    }
+  };  
+}
+
+C.
+
+  1.
+  Hiding the balance as protected is important for the savings account, but also processes such as adding interest or the details of methods are not important to the user
+
+  2.
+  Runtime polymorphism is shown as the savingsAccount methods are used while the processes are hidden under bankAccount
+
+  3.
+  One example of abstraction is buffs and modifiers being applied to damage in a videogame. Complex formulas and unnecessary information is hidden, while damage values are shown.
