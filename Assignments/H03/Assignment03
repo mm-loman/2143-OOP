@@ -1,0 +1,77 @@
+A.
+
+  1.
+  Inheritance is the process of allowing a child class to inherit methods and data from a broader parent class, exptending or changing its functionality.
+  Inheritance allows for a heirarchy of classes, while composition and aggregation are used for additional independent objects related to the parent class.
+
+  2.
+  Single Inheritance:
+  Subclass inherits from a single parent class, creating a specialization of a parent class with shared data and methods.
+  Parent "Character" class giving inheritance to "Class" class (Mage, Warrior, etc.)
+
+  Multiple Inheritance:
+  Subclass inherits from multiple parent classes, allowing for the sharing of methods and data in multiple classes to one subclass.
+  "Character" class inheriting from different ability classes (Attacks, movement, etc.)
+
+  3.
+  Method overriding in a subclass can be used to specialize methods in a parent class to be tailored to the subclass. 
+  Method overriding can be used to correctly implement a method with the same name as the parent class to work with the different properties in the subclass.
+
+  4.
+  Children inherit genetic information from both of their parents, getting a combination of traits or a dominant gene.
+  This is similar to inheritance where a child class may get methods for the subclass, where data from the parent class is combined or chosen.
+
+B.
+
+#include <iostream>
+using namespace std;
+int main(){
+
+ class vehicle{
+  public:
+  string brand;
+   vehicle(string b){
+      brand = b;
+    }
+
+   void drive(){
+     cout << "Vehicle is driving." << endl;
+   }
+ };
+
+  class car : public vehicle{
+  public:
+    int doors;
+  
+    car(string b, int d) : vehicle(b){
+      doors = d;
+    }
+    void drive(){
+      cout << "Car is driving." << endl;
+    }
+  };
+
+  vehicle v1("Ford");
+  car c1("Ford", 4);
+
+  v1.drive();
+  c1.drive();
+}
+
+C.
+
+  1.
+  Inheritance can be useful for to add specialization to a "Character" class such as "Warrior, Mage, etc." 
+  One scenario where inheritance could be overkill is a "Drink" class giving to "Type" class (Coffee, Tea, Soda, etc.). This would be unnecessary as each drink would have the same methods (Pour, Drink, etc.)
+
+  2.
+  Method overriding involves changing the behavior of an inherited method for a subclass, while method overloading changes the parameters for a different function, while using the same name.
+  Inheritance relies on method overriding in order for a subclass to tailor a method to its own unique attributes, otherwise all methods would only act on data inherited from the parent class.
+
+  3. 
+  Inheritance differs from implementing an interface as inheritance shares data and methods with a subclass, while an interface is merely a blueprint for unimplemented methods.
+
+  4. 
+  The diamond problem is an issue where a class inheriting from two classes with the same overridden method creates ambiguity for the base class method call.
+  Virtual inheritance can be used to insure there is only one copy of the base class, resolving the ambiguity.
+
